@@ -80,8 +80,9 @@
                                     
 
                                     <div class="mb-3 mb-0">
-                                        <button class="btn btn-primary" type="submit"> Log In </button>
-                                        <button class="btn btn-success" style="float:right"> <a href="{{route('welcome')}}" style="color:white">Go To Home</a></button>
+                                       
+                                        <button class="btn btn-success" style="border-radius:50px"> <a href="https://techsphereinstitute.co.ke" style="color:white"> <i class="dripicons-arrow-left"></i> Go back To Home</a></button>
+                                        <button class="btn btn-primary" type="submit" style="float:right; border-radius:50px"> <i class=" dripicons-checkmark"></i> Log In </button>
                                     </div>
 
                                 </form>
