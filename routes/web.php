@@ -19,8 +19,8 @@ use App\Http\Controllers\CourseModuleController;
 use App\Http\Controllers\ClassNotesController;
 use App\Http\Controllers\HighSchoolTeacherController;
 Route::get('/', function () {
-    return view('welcome');
-    //return redirect()->route('login');
+    //return view('welcome');
+    return redirect()->route('login');
 })->name('welcome');
 
 Auth::routes();
