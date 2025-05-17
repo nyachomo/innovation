@@ -26,7 +26,7 @@
         <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xxl-4 col-lg-5">
+                    <div class="col-xxl-5 col-lg-6">
                         <div class="card">
 
                            
@@ -34,9 +34,9 @@
                             <div class="card-body p-4">
                                 
                                 <div class="text-center w-75 m-auto">
-                                    <img src="{{asset('website/logo/logo.jpeg')}}" alt="" height="120">
+                                    <img src="{{asset('website/logo/logo.jpeg')}}" alt="" height="150">
                                     <h4 class="text-dark-50">TECHSPHERE  INSTITUTE</h4>
-                                    <h4 class="text-dark-50 text-center pb-0 fw-bold">SIGN IN |HOME</h4>
+                                    <h4 class="text-dark-50 text-center pb-0 fw-bold">ICT INNOVATION CHALLANGE |SIGN IN</h4>
                                     <!--<p class="text-muted mb-4">Enter your email address and password to access Your account.</p>-->
                                 </div>
 
