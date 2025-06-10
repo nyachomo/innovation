@@ -416,11 +416,9 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                                 class="suspendBtn btn btn-secondary btn-sm">Suspend</button>\
                                 <button type="button" value="' + item.id + '" \
                                 class="deleteBtn btn btn-danger btn-sm">Delete</button>\
-                        </td>\
-                        <td>\
-                            <a class="dropdown-item viewQuestionsBtn text-info" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
+                                <a class="btn btn-info btn-sm" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
                                 <i class="fa fa-bars" aria-hidden="true"></i> Show Students\
-                            </a>\
+                                </a>\
                         </td>\
                     </tr>'
                 );
