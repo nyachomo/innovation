@@ -302,3 +302,11 @@ Route::get('/contact-us',[App\Http\Controllers\WebsiteController::class, 'contac
 Route::get('/enrol',[App\Http\Controllers\WebsiteController::class, 'enrol'])->name('enrol');
 
 Route::post('/contact-us/create',[App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');
+
+
+
+
+
+
+Route::get('/showLeedsPerSchool', [SchoolController::class, 'showLeedsPerSchool'])->name('showLeedsPerSchool');
+Route::post('/adminDeleteLeed', [LeedController::class, 'adminDeleteLeed'])->name('adminDeleteLeed');

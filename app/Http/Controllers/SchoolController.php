@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\School;
+use App\Models\Leed;
 
 class SchoolController extends Controller
 {
@@ -22,10 +23,8 @@ class SchoolController extends Controller
         }
     }
 
-    public function fetchSchools(Request $request) {
+    public function fetchSchools_old(Request $request) {
         $query = School::select( 'id', 'school_name','school_location','school_status')->orderBy('created_at', 'desc');
-
-
         // Apply search filter if provided
         if ($request->has('search') && !empty($request->search)) {
             $query->where(function($q) use ($request) {
@@ -53,12 +52,45 @@ class SchoolController extends Controller
     }
 
 
+
+    public function fetchSchools(Request $request)
+   {
+        $query = School::withCount('leeds')
+            ->select('id', 'school_name', 'school_location', 'school_status')
+            ->orderBy('created_at', 'desc');
+
+        if ($request->has('search') && !empty($request->search)) {
+            $query->where(function($q) use ($request) {
+                $q->where('school_name', 'like', '%' . $request->search . '%')
+                ->orWhere('school_location', 'like', '%' . $request->search . '%')
+                ->orWhere('school_status', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        $perPage = $request->input('per_page', 10);
+
+        $users = $query->paginate($perPage);
+
+        return response()->json([
+            'users' => $users->items(),
+            'pagination' => [
+                'current_page' => $users->currentPage(),
+                'last_page' => $users->lastPage(),
+                'total' => $users->total(),
+                'per_page' => $users->perPage(),
+            ],
+            'total_users' => $users->total(),
+        ]);
+    }
+
+
+
     
     public function updateSchools(Request $request)
     {
        
         $validated = $request->validate([
-            'school_id' =>'required|exists:topics,id',
+            'school_id' =>'required|exists:schools,id',
             'school_name' =>'string|max:255',
             'school_location' =>'string|max:255',
         ]);
@@ -111,5 +143,35 @@ class SchoolController extends Controller
    
     }
 
+
+    public function showLeedsPerSchool(Request $request){
+      
+        $school_id = $request->query('school_id'); // Get the exam ID from query parameters
+        $leeds = Leed::with('school', 'course')
+        ->select(
+            'id',
+            'student_firstname',
+            'student_lastname',
+            'student_email',
+            'student_phone',
+            'student_gender',
+            'student_school',
+            'student_form',
+            'comment',
+            'year_data_captured',
+            'parent_name',
+            'parent_phone',
+            'parent_email',
+            'school_id',
+            'course_id'
+        )
+        ->where('school_id',$school_id)->get();
+        $total_leeds=$leeds->count();
+        $school=School::where('id',$school_id)->first();
+
+        return view('schools.showLeedsPerSchool',compact('leeds','school_id','total_leeds','school'));
+
+
+    }
 
 }

@@ -398,6 +398,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
 
             // Clear and repopulate the table
             $('tbody').html("");
+            const baseUrl = "{{ route('showLeedsPerSchool') }}";
             $.each(response.users, function(key, item) {
                 $('#table1').append(
                     '<tr>\
@@ -415,6 +416,11 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                                 class="suspendBtn btn btn-secondary btn-sm">Suspend</button>\
                                 <button type="button" value="' + item.id + '" \
                                 class="deleteBtn btn btn-danger btn-sm">Delete</button>\
+                        </td>\
+                        <td>\
+                            <a class="dropdown-item viewQuestionsBtn text-info" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
+                                <i class="fa fa-bars" aria-hidden="true"></i> Show Students\
+                            </a>\
                         </td>\
                     </tr>'
                 );

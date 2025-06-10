@@ -697,7 +697,6 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
         success: function(response) {
             // Update total users
             $('#total-users').text(response.total_users);
-
             // Clear and repopulate the table
             $('tbody').html("");
             $.each(response.users, function(key, item) {

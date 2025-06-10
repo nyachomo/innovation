@@ -239,6 +239,18 @@ class LeedController extends Controller
    
     }
 
+    public function adminDeleteLeed(Request $request)
+    {
+       
+        $user = Leed::find($request->delete_leed_id);
+        if ($user) {
+            $user->delete();
+            return redirect()->back()->with('success','Data has been deleted successfully');
+        }
+        return response()->json(['success' => false, 'message' => 'Leed not found!'], 404);
+   
+    }
+
 
 
 
