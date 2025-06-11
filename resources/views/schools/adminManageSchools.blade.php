@@ -113,7 +113,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Location</th>
-                                    <th>Status</th>
+                                    <!--<th>Status</th>-->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -400,17 +400,16 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
             $('tbody').html("");
             const baseUrl = "{{ route('showLeedsPerSchool') }}";
             const baseUrl2 = "{{ route('downloadLeedsPerSchool') }}";
+            const leedsUrlBase = "{{ url('adminshowLeedsPerSchool') }}";
             $.each(response.users, function(key, item) {
                 $('#table1').append(
                     '<tr>\
                         <td>' + (key + 1) + '</td>\
                         <td>' + item.school_name + '</td>\
                         <td>' + item.school_location + '</td>\
-                        <td>' + item.school_status + '</td>\
+                        <!--<td>' + item.school_status + '</td>-->\
                         <td>\
-                         <a class="btn btn-primary btn-sm" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
-                                <i class="fa fa-eye" aria-hidden="true"></i> View Students\
-                                </a>\
+                         <a href="' + leedsUrlBase + '/' + item.id + '" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i> VIEW ENROLLED LEEDS</a>\
                                 <a style="color:white" class="btn btn-warning btn-sm" href="' + baseUrl2 + '?school_id=' + item.id + '">\
                                 <i class="fa fa-download" aria-hidden="true"></i> Download Students\
                                 </a>\

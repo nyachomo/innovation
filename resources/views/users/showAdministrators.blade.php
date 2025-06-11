@@ -2,7 +2,7 @@
 @section('content')
 
 
-<!-- start page title -->
+<!-- start page title 
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<!-- end page title --> 
+ --> 
 
 
 
@@ -48,12 +48,12 @@
         <div class="card">
             <div class="card-header">
                 
-                Total Administrators: <span id="total-users">0</span>
-                 <a style="float:right"  href="{{ route('users.download') }}" class="btn btn-sm btn-secondary rounded-pill"><i class=" uil-arrow-down"></i> Download</a>
-                 <a type="button" style="float:right" class="btn btn-sm btn-info rounded-pill" data-bs-toggle="modal" data-bs-target="#uploadExcelModal"> <i class="uil-export"></i>Upload</a>
+                Total Users: <span id="total-users">0</span>
+                 <!--<a style="float:right"  href="{{ route('users.download') }}" class="btn btn-sm btn-secondary rounded-pill"><i class=" uil-arrow-down"></i> Download</a>-->
+                 <!--<a type="button" style="float:right" class="btn btn-sm btn-info rounded-pill" data-bs-toggle="modal" data-bs-target="#uploadExcelModal"> <i class="uil-export"></i>Upload</a>-->
                 <!-- <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addUser-modal"> <i class="uil-user-plus"></i>Add</a>-->
 
-                 <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addUserModal"> <i class="uil-user-plus"></i>Add</a>
+                 <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addUserModal"> <i class="uil-user-plus"></i>Add New User</a>
 
             </div>
             <div class="card-body">
@@ -100,8 +100,8 @@
                                     <th>Phonenumber</th>
                                     <th>Email</th>
                                     <th>Role</th>
-                                    <th>Gender</th>
-                                    <th>Status</th>
+                                    <!--<th>Gender</th>
+                                    <th>Status</th>-->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -230,15 +230,15 @@
                             <select class="form-control" name="role" required>
                                  <option value="">Select Role</option>
                                  <option value="Admin">Admin</option>
-                                 <option value="Principal">Principal</option>
+                                 <!--<option value="Principal">Principal</option>
                                  <option value="Deputy_principal">Deputy Principal</option>
-                                 <option value="Registrar">Registrar</option>
-                                 <option value="Trainer">Trainer</option>
-                                 <option value="Trainee">Trainee</option>
+                                 <option value="Registrar">Registrar</option>-->
+                                <!-- <option value="Trainer">Trainer</option>
+                                 <option value="Trainee">Trainee</option>-->
                                  <option value="High_school_teacher">High School Teacher</option>
                                  <option value="High_school_student">High School Student</option>
-                                 <option value="Data_clerk">Data Clerk</option>
-                                 <option value="Marketer">Marketer</option>
+                                 <!--<option value="Data_clerk">Data Clerk</option>
+                                 <option value="Marketer">Marketer</option>-->
                             </select>
                     </div>
 
@@ -297,7 +297,7 @@
                 <form id="updateUserForm">
 
 
-                   <input type="text" id="user_id" name="user_id" value="" >
+                   <input type="text" id="user_id" name="user_id" value="" hidden="true">
 
                     <div class="row">
                         <div class="col-sm-12">
@@ -391,21 +391,21 @@
                                 <select class="form-control" name="role" id="role" required>
                                     <option value="">Select Role</option>
                                     <option value="Admin">Admin</option>
-                                    <option value="Principal">Principal</option>
+                                   <!-- <option value="Principal">Principal</option>
                                     <option value="Deputy_principal">Deputy Principal</option>
                                     <option value="Registrar">Registrar</option>
                                     <option value="Trainer">Trainer</option>
-                                    <option value="Trainee">Trainee</option>
+                                    <option value="Trainee">Trainee</option>-->
                                     <option value="High_school_teacher">High School Teacher</option>
                                     <option value="High_school_student">High School Student</option>
-                                    <option value="Data_clerk">Data Clerk</option>
-                                    <option value="Marketer">Marketer</option>
+                                    <!--<option value="Data_clerk">Data Clerk</option>
+                                    <option value="Marketer">Marketer</option>-->
                                 </select>
                         </div>
 
 
                         <div class="col-sm-6">
-                                <label>Status<span class="labelSpan">*</span></label>
+                                <label>Status<span class="labelSpan"></span></label>
                                 <select name="status"  class="form-control">
                                     <option value="">Select Status</option>
                                     <option value="Active">Active</option>
@@ -628,8 +628,8 @@
                                 <td>' + item.email + '</td>\
                                 <td>' + roleSchool + '</td>\
                                 <!--<td>' + item.role + '</td>-->\
-                                <td>' + item.gender + '</td>\
-                                <td>' + item.status + '</td>\
+                                <!--<td>' + item.gender + '</td>-->\
+                               <!--<td>' + item.status + '</td>-->\
                                 <td>\
                                 <div class="dropdown">\
                                         <button class="btn btn-success btn-sm rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More Actions</button>\

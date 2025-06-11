@@ -30,7 +30,7 @@
   }
 </style>
 
- <!-- start page title -->
+ <!-- start page title 
  <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -44,7 +44,7 @@
         </div>
     </div>
 </div>
-<!-- end page title --> 
+ --> 
 
 
 
@@ -112,8 +112,8 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                Total Courses: <span id="all_courses">0</span>
-                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addCourseModal"> <i class="uil-plus"></i>Add New Course</a>
+                Total Programs: <span id="all_courses">0</span>
+                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addCourseModal"> <i class="uil-plus"></i>Add New Program</a>
             </div>
             <div class="card-body">
 
@@ -156,10 +156,10 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Level</th>
+                                   <!-- <th>Level</th>
                                     <th>Duration</th>
                                     <th>Price</th>
-                                    <th>Status</th>
+                                    <th>Status</th>-->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -632,6 +632,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
             
             // Clear and repopulate the table
             $('tbody').html("");
+            const leedsUrlBase = "{{ url('adminshowLeedsPerProgram') }}";
             $.each(response.users, function(key, item) {
                 // Determine the class based on course status
                 var statusClass = '';
@@ -650,27 +651,23 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                     '<tr>\
                         <td>' + (key + 1) + '</td>\
                         <td>' + item.course_name + '</td>\
-                        <td>' + item.course_level + '</td>\
-                        <td>' + item.course_duration + '</td>\
-                        <td>' + item.course_price + '</td>\
-                         <td><span class="font-weight-bold ' + statusClass + '">' + statusText + '</span></td>\
+                        <!--<td>' + item.course_level + '</td>-->\
+                        <!--<td>' + item.course_duration + '</td>-->\
+                        <!--<td>' + item.course_price + '</td>-->\
+                        <!--<td><span class="font-weight-bold ' + statusClass + '">' + statusText + '</span></td>-->\
                         <td>\
-                            <div class="dropdown">\
-                                <button class="btn btn-success btn-sm rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More Actions</button>\
-                                <ul class="dropdown-menu">\
-                                    <li><a class="dropdown-item updateBtn text-success" href="#" \
+                           <button class="btn btn-sm btn-success updateBtn" href="#" \
                                         data-id="' + item.id + '" \
                                         data-course_name="' + item.course_name + '" \
                                          data-course_status="' + item.course_status + '" \
                                         data-course_level="' + item.course_level + '" \
                                         data-course_duration="' + item.course_duration + '" \
                                         data-what_to_learn="' + item.what_to_learn + '" \
-                                        data-course_price="' + item.course_price + '" ><i class="uil-edit"></i> Update</a></li>\
-                                    <li><a  class="dropdown-item deleteBtn text-danger" href="#" value="' + item.id + '"><i class="uil-trash"></i> Delete</a></li>\
-                                    <li><a  class="dropdown-item suspendBtn text-warning" href="#" value="' + item.id + '"><i class="uil-cancel"> </i>Suspend</a></li>\
-                                    <li><a class="dropdown-item viewQuestionsBtn text-info" href="' + baseUrl + '?course_id=' + item.id + '" target="_blank"><i class="fa fa-bars" aria-hidden="true"></i> Manage Modules</a></li>\
-                                </ul>\
-                            </div>\
+                                        data-course_price="' + item.course_price + '" ><i class="uil-edit"></i> UPDATE PROGRAM</button>\
+                                    <a href="' + leedsUrlBase + '/' + item.id + '" class="btn btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i> VIEW ENROLLED LEEDS</a>\
+                                    <!--<button  class="btn btn-sm btn-warning suspendBtn" href="#" value="' + item.id + '"><i class="uil-cancel"> </i>Suspend</button>-->\
+                                    <a class="btn btn-sm btn-secondary viewQuestionsBtn" href="' + baseUrl + '?course_id=' + item.id + '" target="_blank"><i class="fa fa-bars" aria-hidden="true"></i> MANAGE MODULES</a>\
+                                    <button class="btn btn-sm btn-danger deleteBtn" href="#" value="' + item.id + '"><i class="uil-trash"></i> DELETE PROGRAM</button>\
                         </td>\
                     </tr>'
                 );

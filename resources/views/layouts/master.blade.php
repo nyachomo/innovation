@@ -203,7 +203,7 @@
                                 <a href="{{route('home')}}" class="side-nav-link">
                                     <i class="uil-comments-alt text-warning"></i>
                                     <span class="menu-arrow"></span>
-                                    <span> SHOW Dasshboard </span>
+                                    <span> VIEW DASHBOARD </span>
                                 </a>
                             </li>
 
@@ -211,7 +211,7 @@
                                 <a href="{{route('userAccount')}}" class="side-nav-link">
                                     <i class="uil-comments-alt text-danger"></i>
                                     <span class="menu-arrow"></span>
-                                    <span> MANAGE Account</span>
+                                    <span> MANAGE ACCOUNT</span>
                                 </a>
                             </li>
 
@@ -219,13 +219,29 @@
                                 <a href="{{route('ShowSettings')}}" class="side-nav-link">
                                     <i class="uil-comments-alt text-warning"></i>
                                     <span class="menu-arrow"></span>
-                                    <span> MANAGE Settings </span>
+                                    <span> MANAGE SETTINGS </span>
+                                </a>
+                            </li>
+
+                            <li class="side-nav-item">
+                                <a href="{{route('showAdministrator')}}" class="side-nav-link">
+                                    <i class="uil-comments-alt text-warning"></i>
+                                    <span class="menu-arrow"></span>
+                                    <span> MANAGE TEACHERS</span>
+                                </a>
+                            </li>
+
+                            <li class="side-nav-item">
+                                <a href="{{route('showCourses')}}" class="side-nav-link">
+                                    <i class="uil-comments-alt text-warning"></i>
+                                    <span class="menu-arrow"></span>
+                                    <span> MANAGE PROGRAMS</span>
                                 </a>
                             </li>
 
 
 
-                            <li class="side-nav-item">
+                            <!--<li class="side-nav-item">
                                 <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                                     <i class="uil-home-alt text-danger"></i>
                                     <span> Manage All Users </span>
@@ -237,13 +253,13 @@
                                             <a href="{{route('showAdministrator')}}">Aministrators</a>
                                         </li>
                                         
-                                        <!--<li><a href="{{route('showTrainees')}}">Trainees</a></li>
-                                        <li><a href="{{route('showApplicants')}}">Applicants</a></li>-->
+                                        <li><a href="{{route('showTrainees')}}">Trainees</a></li>
+                                        <li><a href="{{route('showApplicants')}}">Applicants</a></li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li>-->
 
-                            <li class="side-nav-item">
+                            <!--<li class="side-nav-item">
                                 <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
                                     <i class="uil-store text-info"></i>
                                     <span> Manage Programs </span>
@@ -256,7 +272,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li>-->
 
 
                             <!--<li class="side-nav-item">
@@ -341,9 +357,17 @@
                                 </a>
                            </li>
 
+                           <li class="side-nav-item">
+                                <a  href="{{route('showLeeds')}}" class="side-nav-link">
+                                    <i class="uil-package"></i>
+                                    <span> MANAGE LEEDS </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                           </li>
 
 
-                            <li class="side-nav-item">
+
+                            <!--<li class="side-nav-item">
                                 <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
                                     <i class="uil-clipboard-alt text-warning"></i>
                                     <span> Participants</span>
@@ -357,7 +381,7 @@
                                         
                                     </ul>
                                 </div>
-                            </li>
+                            </li>-->
 
                         
 

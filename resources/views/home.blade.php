@@ -131,6 +131,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
             <div class="alert alert-success" role="alert">
                 <strong>Enrolled Schools</strong> 
                 <h1 id="totalExpectedFee">{{$total_schools ?? 0}}</h1>
+                <p><a href="{{route('showSchools')}}"> More Info</a></p>
             </div>
     </div>
 
@@ -138,6 +139,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
             <div class="alert alert-info" role="alert">
                 <strong>Enrolled Leeds</strong> 
                 <h1 id="totalFeePaid">{{$leeds ?? 0}}</h1>
+                <p><a href="{{route('showLeeds')}}"> More Info</a></p>
             </div>
     </div>
 
@@ -145,6 +147,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
             <div class="alert alert-info" role="alert">
                 <strong>Enrolled Teachers</strong> 
                 <h1 id="totalFeePaid">{{$teachers ?? 0}}</h1>
+                <p><a href="{{route('showAdministrator')}}"> More Info</a></p>
             </div>
     </div>
 
@@ -153,6 +156,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
             <div class="alert alert-danger" role="alert">
                 <strong>Total Programs</strong> 
                 <h1 id="balanceToPay">{{$total_courses ?? 0}}</h1>
+                <p><a href="{{route('showCourses')}}"> More Info</a></p>
             </div>
     </div>
 
@@ -195,7 +199,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
                                         ?>
                                     </td>
                                     <td>
-                                    <a href="{{ route('adminshowLeedsPerSchool', $school->id) }}"><span class="badge bg-info"><i class="fa fa-eye"></i>View Leeds</span></a>
+                                    <a href="{{ route('adminshowLeedsPerSchool', $school->id) }}"><span class="badge bg-success"><i class="fa fa-eye"></i> View Leeds</span></a>
                                  </td>
 
                                 </tr>

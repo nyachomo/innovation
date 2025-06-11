@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<!-- start page title -->
+<!-- start page title 
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -15,7 +15,8 @@
         </div>
     </div>
 </div>
-<!-- end page title --> 
+ --> 
+<br>
 @if (session('error'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
        {{ session('error') }}
@@ -29,6 +30,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
+
 
 <div class="row">
     <div class="col-xl-4 col-lg-5">
@@ -50,16 +52,8 @@
                             <td>{{Auth::user()->firstname}} {{Auth::user()->secondname}} {{Auth::user()->lastname}}</td>
                         </tr>
 
-                        <tr>
-                            <th>Course</th>
-                            <td> {{Auth::user()->course->course_name ?? 'NA'}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Class</th>
-                            <td> {{Auth::user()->clas->clas_name ?? 'NA'}}</td>
-                        </tr>
-
+                       
+                       
 
                         <tr>
                             <th>Gender</th>
