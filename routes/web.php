@@ -310,3 +310,6 @@ Route::post('/contact-us/create',[App\Http\Controllers\ContactController::class,
 
 Route::get('/showLeedsPerSchool', [SchoolController::class, 'showLeedsPerSchool'])->name('showLeedsPerSchool');
 Route::post('/adminDeleteLeed', [LeedController::class, 'adminDeleteLeed'])->name('adminDeleteLeed');
+Route::get('/downloadLeedsPerSchool', [SchoolController::class, 'downloadLeedsPerSchool'])->name('downloadLeedsPerSchool');
+Route::get('/adminshowLeedsPerProgram/{id}', [LeedController::class, 'adminshowLeedsPerProgram'])->name('adminshowLeedsPerProgram');
+Route::get('/adminshowLeedsPerSchool/{id}', [LeedController::class, 'adminshowLeedsPerSchool'])->name('adminshowLeedsPerSchool');

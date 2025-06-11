@@ -29,7 +29,7 @@
     background-color: #28a745; /* Green for active page */
   }
 </style>
-<div class="row">
+<!--<div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
@@ -38,7 +38,7 @@
             <h4 class="page-title">Dashboard</h4>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
@@ -70,7 +70,7 @@
         <div class="card">
             <div class="card-header">
                 Total Schools: <span id="total-users">0</span>
-                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addSchoolsModal"> <i class="uil-user-plus"></i>Add</a>
+                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addSchoolsModal"> <i class="fa fa-plus"></i>ADD NEW SCHOOL</a>
             </div>
             <div class="card-body">
 
@@ -399,6 +399,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
             // Clear and repopulate the table
             $('tbody').html("");
             const baseUrl = "{{ route('showLeedsPerSchool') }}";
+            const baseUrl2 = "{{ route('downloadLeedsPerSchool') }}";
             $.each(response.users, function(key, item) {
                 $('#table1').append(
                     '<tr>\
@@ -407,18 +408,21 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                         <td>' + item.school_location + '</td>\
                         <td>' + item.school_status + '</td>\
                         <td>\
+                         <a class="btn btn-primary btn-sm" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
+                                <i class="fa fa-eye" aria-hidden="true"></i> View Students\
+                                </a>\
+                                <a style="color:white" class="btn btn-warning btn-sm" href="' + baseUrl2 + '?school_id=' + item.id + '">\
+                                <i class="fa fa-download" aria-hidden="true"></i> Download Students\
+                                </a>\
                             <button type="button" value="' + item.id + '" \
                                 data-school_name="' + item.school_name + '" \
                                 data-school_location="' + item.school_location + '" \
                                 data-school_status="' + item.school_status + '" \
-                                class="updateBtn btn btn-success btn-sm">Update</button>\
+                                class="updateBtn btn btn-success btn-sm"><i class="fa fa-edit"> </i> UPDATE</button>\
+                                <!--<button type="button" value="' + item.id + '" \
+                                class="suspendBtn btn btn-secondary btn-sm">Suspend</button>-->\
                                 <button type="button" value="' + item.id + '" \
-                                class="suspendBtn btn btn-secondary btn-sm">Suspend</button>\
-                                <button type="button" value="' + item.id + '" \
-                                class="deleteBtn btn btn-danger btn-sm">Delete</button>\
-                                <a class="btn btn-info btn-sm" href="' + baseUrl + '?school_id=' + item.id + '" target="_blank">\
-                                <i class="fa fa-bars" aria-hidden="true"></i> Show Students\
-                                </a>\
+                                class="deleteBtn btn btn-danger btn-sm"><i class="fa fa-trash"></i> DELETE</button>\
                         </td>\
                     </tr>'
                 );

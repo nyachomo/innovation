@@ -7,7 +7,17 @@ use App\Models\Fee;
 use App\Models\StudentAnswer;
 use App\Models\Exam;
 use App\Models\Question;
+use App\Models\School;
+use App\Models\Leed;
+use App\Models\Course;
 
+
+$total_schools=count(School::all());
+$schools=School::all();
+$leeds=count(Leed::all());
+$total_courses=count(Course::all());
+$courses=Course::all();
+$teachers=count(User::where('role','high_school_teacher')->get());
 if(Auth::check() && Auth::user()->role=='Trainee'){
 
     $user_id=Auth::user()->id;
@@ -83,6 +93,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
 }
 
 
+
 //GETTING THE STUDENT OF THE TEACHER WHO LOGINS
 /*
  if(Auth::check() && Auth::user()->role="High_school_teacher"){
@@ -115,8 +126,129 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
  <!-- end page title -->
  @if(Auth::check() && Auth::user()->role=='Admin')
 
+ <div class="row">
+    <div class="col-sm-3">
+            <div class="alert alert-success" role="alert">
+                <strong>Enrolled Schools</strong> 
+                <h1 id="totalExpectedFee">{{$total_schools ?? 0}}</h1>
+            </div>
+    </div>
 
+    <div class="col-sm-3">
+            <div class="alert alert-info" role="alert">
+                <strong>Enrolled Leeds</strong> 
+                <h1 id="totalFeePaid">{{$leeds ?? 0}}</h1>
+            </div>
+    </div>
+
+    <div class="col-sm-3">
+            <div class="alert alert-info" role="alert">
+                <strong>Enrolled Teachers</strong> 
+                <h1 id="totalFeePaid">{{$teachers ?? 0}}</h1>
+            </div>
+    </div>
+
+
+    <div class="col-sm-3">
+            <div class="alert alert-danger" role="alert">
+                <strong>Total Programs</strong> 
+                <h1 id="balanceToPay">{{$total_courses ?? 0}}</h1>
+            </div>
+    </div>
+
+
+</div>
+ <!-- end page title -->
+
+<div class="row">
+    <div class="col-sm-6">
+         <div class="card">
+            <div class="card-header">
+                 <h5>Recently Added Schools</h5>
+            </div>
+             <div class="card-body">
+                  <table class="table table-sm table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Name</th>
+                              <!--<th>Location</th>-->
+                             <!-- <th>Contact Teacher</th>-->
+                              <th>Enrolled</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @if(!empty($schools))
+                             @foreach($schools as $key=>$school)
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$school->school_name}}</td>
+                                    <!--<td>{{$school->school_location}}</td>-->
+                                   
+                                    <td>
+                                        <?php
+                                          $school_id=$school->id;
+                                          $leeds_count=count(Leed::where('school_id',$school_id)->get());
+                                          echo$leeds_count;
+                                          
+                                        ?>
+                                    </td>
+                                    <td>
+                                    <a href="{{ route('adminshowLeedsPerSchool', $school->id) }}"><span class="badge bg-info"><i class="fa fa-eye"></i>View Leeds</span></a>
+                                 </td>
+
+                                </tr>
+                             @endforeach
+                          @endif
+                      </tbody>
+                  </table>
+             </div>
+         </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recently Added Events</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Leeds</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(!empty($courses))
+                           @foreach($courses as $key=>$course)
+                             <tr>
+                                 <td>{{$key+1}}</td>
+                                 <td>{{$course->course_name}}</td>
+                                 <td>
+                                    <?php
+                                      $leeds2=Leed::where('course_id',$course->id)->get();
+                                      $total_leed= $leeds2->count();
+                                      echo$total_leed;
+                                    ?>
+                                 </td>
+                                 <td>
+                                    <a href="{{ route('adminshowLeedsPerProgram', $course->id) }}"><span class="badge bg-info"><i class="fa fa-eye"></i>View Leeds</span></a>
+                                 </td>
+                             </tr>
+                           @endforeach
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- end row -->
+
  @endif
 
 

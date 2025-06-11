@@ -304,5 +304,24 @@ class LeedController extends Controller
     }
 
 
+    public function adminshowLeedsPerProgram($id){
+        $course=Course::find($id);
+        $leeds=Leed::with('school','course')->where('course_id',$id)->get();
+        $total_leeds=$leeds->count();
+        return view('leeds.adminShowLeedsPerProgram',compact('leeds','course','total_leeds'));
+    }
+
+    
+    public function adminshowLeedsPerSchool($id){
+        $school=School::find($id);
+        $leeds=Leed::with('school','course')->where('school_id',$id)->get();
+        $total_leeds=$leeds->count();
+        return view('leeds.adminShowLeedsPerSchool',compact('leeds','school','total_leeds'));
+    }
+
+    
+
+
+
 
 }

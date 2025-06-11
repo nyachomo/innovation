@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="row">
+<!--<div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
@@ -10,7 +10,7 @@
             <h4 class="page-title">Dashboard</h4>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
@@ -44,6 +44,10 @@
                 <b>Total Students:</b> <span>{{$total_leeds}}</span>
                 <b>School:</b> <span >{{$school->school_name}}</span>
                 <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addSchoolsModal"> <i class="uil-user-plus"></i>Add</a>
+                <form>
+                    <input type="text" class="form-control" name="school_id" value="{{$school_id}}" hidden="true">
+                    <button type="submit" class="btn btn-secondary"><i class="fa fa-dowload" style="float:right !important"></i> Download</button>
+                </form>
             </div>
             <div class="card-body">
 
