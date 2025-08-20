@@ -276,13 +276,30 @@
                 </div>
 
                 <div class="row" style="padding-top:10px">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <label>Has Paid Registration Fee</label>
                            <select class="form-control" name="has_paid_reg_fee" required>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
                     </div>
+
+                    <div class="col-sm-6">
+
+                       <div class="form-group">
+                            <label>School </label>
+                            <select class="form-control" name="school_id">
+                                 <option value="">Select School</option>
+                                 @if(!empty($schools))
+                                    @foreach($schools as $key=>$school)
+                                    <option value="{{$school->id}}">{{$school->school_name}}</option>
+                                    @endforeach
+                                 @endif
+                            </select>
+                        </div>
+
+                    </div>
+
                 </div>
 
 
@@ -297,12 +314,6 @@
     </div><!-- /.modal-dialog -->
 </div>
 <!--end of modal-->
-
-
-
-
-
-
 
 
 

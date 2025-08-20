@@ -29,7 +29,7 @@
     background-color: #28a745; /* Green for active page */
   }
 </style>
-<!-- start page title -->
+<!-- start page title 
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-<!-- end page title --> 
+ --> 
 
 
 <div id="response"></div>
@@ -177,7 +177,9 @@
                                                                     <!-- text input -->
                                                                     <div class="form-group">
                                                                         <label>What to Learn<sup>*</sup></label>
-                                                                        <textarea name="module_content"><?php echo$module->module_content?></textarea>
+                                                                       
+
+                                                                        <textarea name="module_content" class="form-control"><?php echo$module->module_content?></textarea>
                                                                         
                                                                     </div>
                                                                 </div>
@@ -285,8 +287,8 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>What to Learn<sup>*</sup></label>
-                                <textarea name="module_content"></textarea>
-                                
+                               <textarea name="module_content" id="simplemde1"></textarea>
+
                             </div>
                         </div>
 

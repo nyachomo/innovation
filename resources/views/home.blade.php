@@ -18,6 +18,13 @@ $leeds=count(Leed::all());
 $total_courses=count(Course::all());
 $courses=Course::all();
 $teachers=count(User::where('role','high_school_teacher')->get());
+
+
+//DASHBOARD FOR HIGH SCHOOL TEACHER
+$leedsPerSchool=count(Leed::where('school_id',Auth::user()->school_id)->whereNot('student_form','Form Four')->get());
+
+$leedsPerSchoolFormFour=count(Leed::where('school_id',Auth::user()->school_id)->where('student_form','Form Four')->get());
+
 if(Auth::check() && Auth::user()->role=='Trainee'){
 
     $user_id=Auth::user()->id;
@@ -258,86 +265,26 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
 
  @if(Auth::check() && Auth::user()->role=='High_school_teacher')
 
-
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <button class="btn btn-success">
-                       <i class=" fa fa-user-plus"> </i>  Click Here to Enroll Students
-                    </button>
-                </div>
-               
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <center>
-                                <img src="{{asset('images/logo/logo.jpeg')}}"  style="max-width: 100px; height: 100px">
-                            </center>
-                            <center> <h2 style="color:#000033">TECHSPHERE TRAINING INSTITUTE</h2></center>
-                        
-                            <center>
-                            <p style="border-bottom:3px solid #000033">
-                                <b>
-                                View Park Towers 17th Floor, University way | P. O. Box 1334-00618, Nairobi<br>
-                                Web: <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a>  Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span>| <br>
-                                Phone: <span style="color:#3ccccc">+254768919307</span>
-                                </b>
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                              <h1>
-                                  <center>1 <sup>st</sup> ANNUAL ICT INNOVATION CHALLANGE</center>
-                              </h1>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        
-
-                    <div class="col-xxl-6 col-sm-6">
-                        <div class="card widget-flat bg-success text-white">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-account-multiple widget-icon bg-white text-success"></i>
-                                </div>
-                                <h4 class="text-uppercase mt-0">TOTAL PARTICIPANTS (SCHOOLS)</h4>
-                                <h3 class="mt-3 mb-3">123</h3>
-                            </div>
-                        </div>
-                    </div> <!-- end col-->
-
-                    <div class="col-xxl-6 col-sm-6">
-                        <div class="card widget-flat bg-warning text-white">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-currency-usd widget-icon bg-light-lighten rounded-circle text-white"></i>
-                                </div>
-                                <h4 class="text-uppercase mt-0">ENROLLED STUDENTS (MY STUDENTS)</h4>
-                                <h3 class="mt-3 mb-3 text-white">4534</h3>
-                                
-                            </div>
-                        </div>
-                    </div> <!-- end col-->
-
-
-                    </div>
-
-
-                    
-                </div> <!-- end card body-->
-
-                <!--card-footer-->
-                <div id="pagination-controls" style="float:right"></div>
-                <!--end of card-footer-->
-            </div> <!-- end card -->
-        </div><!-- end col-->
+ <div class="row">
+    <div class="col-sm-6">
+            <div class="alert alert-success" role="alert">
+                <strong>ENROLLED STUDENTS (LOWER FORMS)</strong> 
+                <h1 id="totalExpectedFee">{{$leedsPerSchool ?? 0}}</h1>
+                <p><a href="{{route('teacherShowLeeds')}}"> <button class="btn btn-warning">CLICK HERE TO ENROLL (LOWER FORMS)</button></a></p>
+            </div>
     </div>
+
+    <div class="col-sm-6">
+            <div class="alert alert-danger" role="alert">
+                <strong>ENROLLED STUDENTS (FORM FOUR)</strong> 
+                <h1 id="totalFeePaid">{{$leedsPerSchoolFormFour ?? 0}}</h1>
+                <p><a href="{{route('teachermanageLeedsFormFour')}}"> <button class="btn btn-secondary">CLICK HERE TO ENROLL (FORM FOUR)</button></a></p>
+            </div>
+    </div>
+
+    
+
+</div>
 
 
 
@@ -352,7 +299,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
 <!-- end page title --> 
 
     <div class="row">
-        <div class="col-xxl-3 col-sm-3">
+        <!--<div class="col-xxl-3 col-sm-3">
             <div class="card widget-flat bg-success text-white">
                 <div class="card-body">
                     <div class="float-end">
@@ -362,9 +309,9 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
                     <h3 class="mt-3 mb-3">Ksh {{Auth::user()->course->course_price?? '0'}}.00</h3>
                 </div>
             </div>
-        </div> <!-- end col-->
+        </div>-->
 
-        <div class="col-xxl-3 col-sm-3">
+        <!--<div class="col-xxl-3 col-sm-3">
             <div class="card widget-flat bg-primary text-white">
                 <div class="card-body">
                     <div class="float-end">
@@ -375,10 +322,10 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
                     
                 </div>
             </div>
-        </div> <!-- end col-->
+        </div>-->
 
 
-        <div class="col-xxl-3 col-sm-3">
+       <!-- <div class="col-xxl-3 col-sm-3">
             <div class="card widget-flat bg-warning text-white">
                 <div class="card-body">
                     <div class="float-end">
@@ -389,16 +336,16 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
                     
                 </div>
             </div>
-        </div> <!-- end col-->
+        </div>-->
 
         <div class="col-xxl-3 col-sm-3">
             <a href="{{route('traineeViewCourse')}}">
-            <div class="card widget-flat bg-danger text-white">
+            <div class="card widget-flat bg-success text-white">
                 <div class="card-body">
                     <div class="float-end">
                         <i class="mdi mdi-currency-usd widget-icon bg-light-lighten rounded-circle text-white"></i>
                     </div>
-                    <h5 class="fw-normal mt-0" title="Revenue">Course</h5>
+                    <h5 class="fw-normal mt-0" title="Revenue">PROGRAM</h5>
                     <h3 class="mt-3 mb-3 text-white">1</h3>
                     
                 </div>
@@ -411,7 +358,7 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
 
     <div class="row">
 
-            <div class="col-xl-8">
+            <!--<div class="col-xl-8">
                 <div class="card">
                     <div class="card-header">
                             <h4 class="header-title mb-4">Fee Payments</h4>
@@ -462,33 +409,24 @@ $uniqueQuestions = StudentAnswer::where('user_id', $user_id)
 
 
                     </div>
-                    <!-- end card body-->
+                    -->
                 </div>
                 <!-- end card -->
             </div>
             <!-- end col-->
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="card">
-                    <div class="card-header">
+                    <!--<div class="card-header">
                             <h4 class="header-title mb-4">Assesment Analysis</h4>
                             <p>This is your Avarage Assesment</p>
-                    </div>
+                    </div>-->
 
                     <div class="card-body">
+                        <h2>Scholarship Test Score</h2>
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td>Assignemt</td>
-                                    <td>{{$avgAssignment ?? 'NA'}}  ( <a href="{{route('traineeViewAssignment')}}"> View </a>)</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Cats</td>
-                                    <td>{{$avgCat}} (<a href="{{route('traineeViewCats')}}">View</a>) </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Final Exam</td>
+                                    <td>Score</td>
                                     <td>{{$avgFinalExam}} ( <a href="{{route('traineeViewFinalExam')}}"> View</a>)</td>
                                 </tr>
                             </tbody>

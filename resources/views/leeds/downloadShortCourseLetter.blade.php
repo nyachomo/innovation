@@ -5,48 +5,73 @@
     <head>
         <title>Short Course</title>
         <style>
+            
+
+
+
             table {
-                width: 100%;
-                border-collapse: collapse;
-                text-align: left;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+        }
+
+        body,p,h1,h2,h3,h4,h5,h6{
+            font-family: "Afacad Flux", sans-serif !important;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            font-variation-settings:
+            "slnt" 0;
+        }
+
+            body{
+           
+        }
+
+        th, td {
+            padding: 2px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        thead {
+            background-color: #000033;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+           /* background-color: #ddd;*/
+        }
+
+        body {
+                font-family: 'Raleway', sans-serif !important; /* Replace with your chosen font */
             }
-            thead {
-                background-color: #000033;
-                color: white;
-            }
-            th, td {
-                border: 1px solid #ddd;
-            }
-            *{
-                font-family: "Tw Cen MT", "Century Gothic", "Arial", sans-serif;
-            }
-            ol li{
-                list-style-type: none;
-            }
-            td{
-                padding:5px;
-            }
+
+
+
         </style>
     </head>
     <body>
         <center>
-             <img src="{{ $imageSrc }}"  style="max-width: 200px; height: 150px">
+             <!--<img src="{{ $imageSrc }}"  style="max-width: 200px; height: 150px">-->
             
         </center>
-        <center> <h2 style="color:#000033">TECHSPHERE TRAINING INSTITUTE</h2></center>
+       <!-- <center> <h2 style="color:#000033">{{$setting->company_name ?? 'NA'}}</h2></center>-->
        
         <center>
-        <p style="border-bottom:3px solid #000033">
+       <!-- <p style="border-bottom:3px solid #000033">
             <b>
             View Park Towers 17th Floor, University way | P. O. Box 1334-00618, Nairobi<br>
             Web: <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a>  Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span>| <br>
             Phone: <span style="color:#3ccccc">+254768919307</span>
             </b>
-        </p>
+        </p>-->
 
         </center>
 
-      
+      <br>
         <!-- <h3><b>Dear {{$leed->student_fullname}}</b></h3>-->
         <table class="table" style="width:100%;margin-top:-35px">
             <tr style="border:1px solid white">
@@ -66,156 +91,96 @@
             </tr>
         </table>
 
-        <p><b><u>SUBJECT: FULL SCHOLARSHIP - PYTHON PROGRAMMING  TRAINING PROGRAME  <u></b></p>
-        <p style="text-align: left;">
-            We hope this letter finds you well. As schools close for the April holiday, Techsphere  is excited to 
-            offer a full scholarship Python Training Program exclusively for high school students. 
-            This is a great opportunity for you to gain 
-            valuable programming skills during your holiday while preparing for a tech-driven future.
+                <p><b><u>RE: PARTIAL SCHOLARSHIP - ANUALL "SKILLS PATHFINDING" TRAINING PROGRAM  <u></b></p>
 
-            <h4>1.0 Program Details</h4>
-            <ul>
-                <li>
-                    <b>Course:</b> Python Programming (Beginner Level)
-                </li>
+                 <p style="text-align:justify">
+                    {{$setting->company_name ?? 'NA'}} congratulates you for being shortlisted to be admitted into this year’s  Annual <b>“Skill Pathfinding”</b>training program having passed our assessment.
 
-                <li>
-                    <b>Duration: </b> Two weeks (14 April 2025-25 April 2025)
-                </li>
-
-                <li>
-                    <b>Mode:</b> Online training (Monday-Thursday: 10:00am-11:30am)
-                </li>
-
-                <li>
-                    <b>Eligibility:</b> High school students (Form2-Form4)
-                </li>
-
-                <li>
-                     <b>Registration Fee:</b> Ksh 2,000 (for certificate processing and issuance)
-                </li>
-
-                <li>
-                    <b>Certification:</b> Upon successful completion, you will receive a recognized certificate
-                </li>
-               
-
-            </ul>
-
-            <h4>2.0 Objective Of the program</h4>
-            Our goal is to introduce you to Python programming and equip you with foundational coding skills that can be applied 
-            in various fields, including web development, data analysis, robotics and automation. By the end of the program, you will be able 
-            to write basic Python scripts, understand programming logic, and solve real-world problems using Python.
-
-           
-            <h4> 3.0 Benefits of the Training:</h4>
-
-            <ul>
-                <li>Hands-on training with experienced instructors</li>
-                <li>Practical programming exercises and projects</li>
-               <li> Certificate of completion to boost your academic and career profile</li>
-            </ul>
-
-            <h4>4.0 Course Outline</h4>
-            <table>
-                <thead>
+                </p>
+                <p style="text-align:justify">
+                    The <b>“Skill Pathfinding”</b> Training Program is an ICT skill nurturing platform for the youth, which is targeting to identify 
+                    and mentor close to more than 1000 talented youth annually, to acquire and develop specialized tech skills that are high in 
+                    demand globally today. This is an effort to be part of the solution to the widening skill gap in the global ICT industry. 
+                    Consequently,  {{$setting->company_name ?? 'NA'}} is set out to develop a futuristic approach to reskilling the nation. 
+                    Over time, we have grown to become a multi-stakeholder alliance representing both the academia and the ICT sector. 
                     
-                     <th>#</th>
-                     <th>TOPIC</th>
-                     <th>WHAT TO LEARN</th>
-                </thead>
-                <tr>
-                    <td>1</td>
-                     <td>Introduction to Python</td>
-                     <td>
-                        <ol>
-                            <li>Introduction to  Python</li>
-                            <li>installing Python and set up an(IDE).</li>
-                            <li>Writting  Python first program.</li>
-                        <ol>
-                     </td>
-                </tr>
+                </p>
 
-                <tr>
-                    <td>2</td>
-                    <td>Python Basics</td>
-                    <td>
-                           <ol>
-                                <li>Introduction to variables</li>
-                                <li>Data types (integers, floats, strings, booleans)</li>
-                                <li>Python operators (arithmetic, comparison, and logical)</li>
-                           </ol>
-                    </td>
-                </tr>
+                <p style="text-align:justify">
+                    Having successfully qualified for the program, you will be taken through a series of trainings, mentorship programs, 
+                    and project-based learning. This will culminate in developing industry recognized skillsets in your area of specialization 
+                    as well as proper mentorship into the tech industry. For the 2025 program, we have selected key courses that are in high demand, 
+                    up-to-date and guaranteed to give participants a cutting edge in the ICT industry. To make this dream come true, we have reduced 
+                    down our fee charges by almost 40% from the standard charges in order to impact more lives as cost can be a greater barrier to such 
+                    a predominant milestone. Attached below is the payable fee structure.
+                </p>
+              <!-- <h4><b style="border-bottom:3px solid #000033">11<sup>th</sup> November 2024 Upskilling Program</b></h4>-->
 
-                <tr>
+              <table class="table table-bordered table-sm">
+                    <thead>
+                            <th>#</th>
+                            <th>Training Program</th>
+                            <th>Duration</th>
+                            <th>Tution Fee (Ksh)</th>
+                    </thead>
+                    <body>
 
-                    <td>3</td>
-                    <td>Conditional Statements and Loops</td>
-                    <td>
-                        <ol>
-                          <li>if, elif, and else statements. </li>
-                          <li>loops (for and while) </li>
-                        </ol>
-                    </td>
-                </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Android Application Development</td>
+                            <td>4 Weeks</td>
+                            <td>20,500</td>
+                        </tr>
 
-                <tr>
-                    
-                    <td>4</td>
-                    <td> Functions and Modular Programming</td>
-                    <td>
-                        <ol>
-                            <li>Introduction to functions</li>
-                            <li>writing reusable code</li>
-                            <li>defining functions with parameters and return values</li> 
-                            <li>modular programming</li>
-                        </ol>
-                    </td>
-                </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Cyber Security And Ethical Hacking</td>
+                            <td>6 Weeks</td>
+                            <td>20,500</td>
+                        </tr>
 
-                <tr>
-                    <td>5</td>
-                    <td> Lists, Tuples, and Dictionaries</td>
-                    <td>
-                        <ol>
-                            <li>  list, Tuples and Dictionaries</li>
-                            <li>  Indexing, slicing, and iteration.</li>
-                        </ol>
-                    </td>
-                </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Data Data Science</td>
+                            <td>6 Weeks</td>
+                            <td>20,500</td>
+                        </tr>
 
-                <tr>
-                    <td>6</td>
-                    <td> Working with User Input and Error Handling</td>
-                    <td>
-                       <ol>
-                            <li>Receiving and processing user input using the input() function.</li>
-                            <li>Explore error handling using try and except blocks to prevent program crashes.</li>
-                       </ol>
-                    </td>
-                </tr>
-            </table>
-                      We encourage you to take advantage of this opportunity. Seats are limited, so secure your slot by registering as soon as possible. To register, please visit <a href="https://techsphereinstitute.co.ke/public/enrol">https://techsphereinstitute.co.ke/public/enrol</a> or contact us at <b>+2547768919307</b>
-           <br>       We look forward to seeing you in class and helping you take your first step into the world of programming.
-          
-        </p>
-       
-        <br>
-      <table style="border:1px solid white">
-          <tr style="border:1px solid white">
-            <td style="border:1px solid white">
-                <b>Yours Faithfully</b><br><br>
+                        <tr>
+                            <td>4</td>
+                            <td>Digital Marketing</td>
+                            <td>6 Weeks</td>
+                            <td>20,500</td>
+                        </tr>
 
-                Ibrahim Gichemba<br>
-                  <img src="{{ $imageSrc2 }}" height="80"><br>
-                <b>Director Techspher Training  Institute.<b>
-            </td>
-             <td style="border:1px solid white">
-                  <img src="{{ $imageSrc3 }}" height="120" width="100%"><br>
-             </td>
-          </tr>
-      </table>  
+                        <tr>
+                            <td>5</td>
+                            <td>Web Application Development</td>
+                            <td>6 Weeks</td>
+                            <td>20,500</td>
+                        </tr>
+
+                        
+                        
+                            
+                    </body>
+                </table>
+
+            
+            
+            
+                <p style="text-align:justify">
+                    For this program, select one course from the list above. The program will run for a period of 6 weeks, 3hrs per day (MON-FRI) and a certificate will be issued upon completion. 
+                    To accept this partial scholarship, you are required to visit  <a href="#">Registration Link</a> and select <b>“Enroll”</b> to register before the deadline <b> 6<sup>th</sup> November 2025 </b> . 
+                    A non-refundable registration fee of <b>KES. 1000</b> is required to secure a slot on the program but students who have attended the program before will not be required to pay this fee. The starting date for the program is on <b>9 <sup>th</sup> November 2025.</b> 
+                    Please note, the program will be run <b>PURELY ONLINE.</b> This will enable students to put focus to both the program and normal school assignments.
+                </p>
+                <p style="text-align:justify">
+                    We look forward to having you join us
+                </p>
+
+        
+      
     </body>
 </html>
 

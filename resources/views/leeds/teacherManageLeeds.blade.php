@@ -46,34 +46,8 @@
         <div class="card">
             <div class="card-header">
 
-            <div class="row">
-                        <div class="col-sm-12">
-                            <center>
-                                <img src="{{asset('images/logo/logo.jpeg')}}"  style="max-width: 100px; height: 100px">
-                            </center>
-                            <center> <h2 style="color:#000033">TECHSPHERE TRAINING INSTITUTE</h2></center>
-                        
-                            <center>
-                            <p style="border-bottom:3px solid #000033">
-                                <b>
-                                View Park Towers 17th Floor, University way | P. O. Box 1334-00618, Nairobi<br>
-                                Web: <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a>  Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span>| <br>
-                                Phone: <span style="color:#3ccccc">+254768919307</span>
-                                </b>
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                              <h5>
-                                  <center>1 <sup>st</sup> ANNUAL ICT INNOVATION CHALLANGE<br>PARTICIPANTS</center>
-                              </h5>
-                        </div>
-                    </div>
-
-                Total Students: <span id="total-users">0</span>
+           
+                Total Students (Lower Forms): <span id="total-users">0</span>
                 <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addLeedModal"> <i class="uil-user-plus"></i>Register Student</a>
             </div>
             <div class="card-body">
@@ -120,8 +94,8 @@
                                     <th>Student Class</th>
                                     <th>Student Contact</th>
                                     <th>Parent Contact</th>
-                                    <th>Program</th>
-                                    <!-- <th>Student Gender</th>-->
+                                   <!-- <th>Program</th>-->
+                                    <!--<th>Student Gender</th>-->
                                     <!--<th>Parent name</th>-->
                                    
                                     <th>Action</th>
@@ -713,7 +687,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                          <!--<td>' + item.student_gender + '</td>-->\
                         <!--<td>' + item.parent_name + '</td>-->\
                         <td>' + item.parent_phone + '</td>\
-                        <td>' + item.course.course_name + '</td>\
+                       <!-- <td>' + item.course.course_name + '</td>-->\
                         <td>\
                             <button type="button" value="' + item.id + '" \
                                 data-student_firstname="' + item.student_firstname + '" \
@@ -727,8 +701,8 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                                 <button type="button" value="' + item.id + '" \
                                 class="updateBtn btn btn-success btn-sm"><i class="uil-edit"></i>Update</button>\
                                <!--  <button type="button" value="' + item.id + '" \
-                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i></button>\
-                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="uil-file-download"></i> Download PDF</a> --> \
+                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i></button>-->\
+                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="fa fa-download"></i> Scholarship Letter</a>\
                         </td>\
                     </tr>'
                 );

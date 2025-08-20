@@ -26,7 +26,7 @@
         <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xxl-5 col-lg-6">
+                    <div class="col-xxl-4 col-lg-5">
                         <div class="card">
 
                            
@@ -34,9 +34,9 @@
                             <div class="card-body p-4">
                                 
                                 <div class="text-center w-75 m-auto">
-                                    <img src="{{asset('website/logo/logo.jpeg')}}" alt="" height="150">
-                                    <h4 class="text-dark-50">TECHSPHERE  INSTITUTE</h4>
-                                    <h4 class="text-dark-50 text-center pb-0 fw-bold">ICT INNOVATION CHALLANGE |SIGN IN</h4>
+                                   <!-- <img src="{{asset('images/logo/logo.jfif')}}" >-->
+                                    <!--<h4 class="text-dark-50">TECHSPHERE  INSTITUTE</h4>-->
+                                    <h4 class="text-dark-50 text-center pb-0 fw-bold">  COLLABORATION AND LINKAGES PORTAL</h4>
                                     <!--<p class="text-muted mb-4">Enter your email address and password to access Your account.</p>-->
                                 </div>
 
@@ -81,8 +81,8 @@
 
                                     <div class="mb-3 mb-0">
                                        
-                                        <button class="btn btn-success" style="border-radius:50px"> <a href="https://techsphereinstitute.co.ke" style="color:white"> <i class="dripicons-arrow-left"></i> Go back To Home</a></button>
-                                        <button class="btn btn-primary" type="submit" style="float:right; border-radius:50px"> <i class=" dripicons-checkmark"></i> Log In </button>
+                                        <!--<button class="btn btn-success" style="border-radius:50px"> <a href="https://techsphereinstitute.co.ke" style="color:white"> <i class="dripicons-arrow-left"></i> Go back To Home</a></button>-->
+                                        <button class="btn btn-primary" type="submit" style="float:right; border-radius:50px;width:100%"> <i class=" dripicons-checkmark"></i> Log In </button>
                                     </div>
 
                                 </form>

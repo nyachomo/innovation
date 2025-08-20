@@ -19,6 +19,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\School;
 
 
 class TraineeController extends Controller
@@ -28,7 +29,8 @@ class TraineeController extends Controller
     public function index(){
         $courses=Course::select('course_name','id')->get();
         $clases=Clas::select('clas_name','id')->get();
-        return view('trainees.showTrainees',compact('courses','clases'));
+        $schools=School::select('id','school_name')->get();
+        return view('trainees.showTrainees',compact('courses','clases','schools'));
     }
 
     public function fetchTrainees(Request $request) {

@@ -73,6 +73,7 @@ class UserController extends Controller
     public function adminFetchUsers(Request $request) {
         // Query users with school relationship
         $query = User::with('school')
+            ->whereNot('role','Trainee')
             ->select('users.id', 'users.firstname',
                 DB::raw("COALESCE(users.secondname, '') as secondname"),
                 DB::raw("COALESCE(users.lastname, '') as lastname"),

@@ -29,7 +29,7 @@
         </style>
     </head>
     <body>
-        <center>
+        <!--<center>
              <img src="{{ $imageSrc }}"  style="max-width: 200px; height: 150px">
             
         </center>
@@ -44,13 +44,13 @@
             </b>
         </p>
 
-        </center>
+        </center>-->
 
       
       
        
 
-        <center><p><b>1 <sup> st</sup><u> ANNUAL ICT INNOVATION CHALLANGE  <u></b></p></center>
+        <!--<center><p><b>1 <sup> st</sup><u> ANNUAL ICT INNOVATION CHALLANGE  <u></b></p></center>-->
         <br><br>
         <table class="table" style="width:100%;margin-top:-35px">
             <tr style="border:1px solid white">

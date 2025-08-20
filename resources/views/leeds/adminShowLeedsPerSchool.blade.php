@@ -88,7 +88,7 @@
                                     <th>School</th>
                                     <th>Student Contact</th>
                                     <th>Parent Contact</th>
-                                    <th>Action</th>
+                                   <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,10 +101,16 @@
                                         <td>{{$leed->school->school_name ?? 'NA'}}</td>
                                         <td>{{$leed->student_phone  ?? 'NA'}}</td>
                                         <td>{{$leed->parent_phone ?? 'NA'}}</td>
-                                        <td>
+                                        <!--<td>
                                             <span class="badge bg-success">Send mail</span>
                                             <span class="badge bg-secondary">Send sms</span>
                                             <span class="badge bg-info"><i class="fa fa-download"></i> Scholarshi Letter</span>
+                                        </td>-->
+
+                                        <td>
+                                            <a href="{{ route('leeds.downloadShortCourseLetter', $leed->id) }}">
+                                                <span class="badge bg-success"><i class="fa fa-download"></i> Scholarship Letter</span>
+                                            </a>
                                         </td>
                                     </tr>
                                   @endforeach

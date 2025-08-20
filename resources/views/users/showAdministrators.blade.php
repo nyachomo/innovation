@@ -246,7 +246,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>School </label>
-                            <select class="form-control" name="school_id" required>
+                            <select class="form-control" name="school_id">
                                  <option value="">Select School</option>
                                  @if(!empty($schools))
                                     @foreach($schools as $key=>$school)

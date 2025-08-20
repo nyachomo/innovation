@@ -46,8 +46,9 @@
         <div class="card">
             <div class="card-header">
 
-                Enrolled Leeds: <span id="total-users">0</span>
-                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addLeedModal"> <i class="uil-user-plus"></i>Enroll New Leed</a>
+           
+                Total Students (Form Four): <span id="total-users">0</span>
+                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addLeedModal"> <i class="uil-user-plus"></i>Register Student</a>
             </div>
             <div class="card-body">
 
@@ -93,8 +94,8 @@
                                     <th>Student Class</th>
                                     <th>Student Contact</th>
                                     <th>Parent Contact</th>
-                                    <!--<th>Program</th>-->
-                                    <!-- <th>Student Gender</th>-->
+                                   <!-- <th>Program</th>-->
+                                    <!--<th>Student Gender</th>-->
                                     <!--<th>Parent name</th>-->
                                    
                                     <th>Action</th>
@@ -211,7 +212,7 @@
                                     <option value="">Select ..</option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
-                                    <option value="Other">Other</option>
+                                    <!--<option value="Other">Other</option>-->
                                 </select>
 
                             </div>
@@ -239,8 +240,8 @@
                                     <option value="Grade Eleven">Grade 11</option>
                                     <option value="Grade Twelve">Grade 12</option>
                                     <option value="Form one">Form One</option>-->
-                                    <option value="Form Two">Form Two</option>
-                                    <option value="Form Three">Form Three</option>
+                                   <!-- <option value="Form Two">Form Two</option>
+                                    <option value="Form Three">Form Three</option>-->
                                     <option value="Form Four">Form Four</option>
                                 </select>
 
@@ -431,7 +432,7 @@
                                     <option value="">Select ..</option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
-                                    <option value="Other">Other</option>
+                                    <!--<option value="Other">Other</option>-->
                                 </select>
 
                             </div>
@@ -454,7 +455,7 @@
                                 
 
                                 <select class="form-control" name="student_form" id="student_form" required>
-                                    <option value="">Select ..</option>
+                                    <!--<option value="">Select ..</option>-->
                                    <!-- <option value="Grade One">Grade 1</option>
                                     <option value="Grade Two">Grade 2</option>
                                     <option value="Grade Three">Grade 3</option>
@@ -467,9 +468,9 @@
                                     <option value="Grade Ten">Grade 10</option>
                                     <option value="Grade Eleven">Grade 11</option>
                                     <option value="Grade Twelve">Grade 12</option>
-                                    <option value="Form one">Form One</option>-->
+                                    <option value="Form one">Form One</option>
                                     <option value="Form Two">Form Two</option>
-                                    <option value="Form Three">Form Three</option>
+                                    <option value="Form Three">Form Three</option>-->
                                     <option value="Form Four">Form Four</option>
                                 </select>
 
@@ -518,7 +519,7 @@
                                         <label>Program<sup>*</sup></label>
                                     
                                         <select class="form-control"  name="course_id">
-                                        <!-- <option value="">Select ..</option>-->
+                                           <option value="">Select ..</option>
                                             @foreach($courses as $key=>$course)
                                             <option value="{{$course->id}}">{{$course->course_name}}</option>
                                             @endforeach
@@ -664,12 +665,13 @@ setTimeout(() => {
 function fetchUsers(page = 1, search = '', perPage = 10) {
     $.ajax({
         type: 'GET',
-        url: "{{route('fetchLeeds')}}",
+        url: "{{route('teacherFetchLeedsFormFour')}}",
         data: { page: page, search: search, per_page: perPage },
         dataType: "json",
         success: function(response) {
             // Update total users
             $('#total-users').text(response.total_users);
+
             // Clear and repopulate the table
             $('tbody').html("");
             $.each(response.users, function(key, item) {
@@ -685,7 +687,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                          <!--<td>' + item.student_gender + '</td>-->\
                         <!--<td>' + item.parent_name + '</td>-->\
                         <td>' + item.parent_phone + '</td>\
-                        <!--<td>' + item.course.course_name + '</td>-->\
+                       <!-- <td>' + item.course.course_name + '</td>-->\
                         <td>\
                             <button type="button" value="' + item.id + '" \
                                 data-student_firstname="' + item.student_firstname + '" \
@@ -697,10 +699,10 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                                 data-parent_name="' + item.parent_name + '" \
                                 data-parent_phone="' + item.parent_phone + '" \
                                 <button type="button" value="' + item.id + '" \
-                                class="updateBtn btn btn-success btn-sm"><i class="uil-edit"></i>UPDATE</button>\
-                               <button type="button" value="' + item.id + '" \
-                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i> DELETE</button>\
-                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="fa fa-download"></i> Scholarship Letter</a>\
+                                class="updateBtn btn btn-success btn-sm"><i class="uil-edit"></i>Update</button>\
+                               <!--  <button type="button" value="' + item.id + '" \
+                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i></button>-->\
+                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="uil-file-download"></i> Scholarship Letter</a> \
                         </td>\
                     </tr>'
                 );

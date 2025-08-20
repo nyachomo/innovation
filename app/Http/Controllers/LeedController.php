@@ -40,51 +40,8 @@ class LeedController extends Controller
 
 
 
-    public function teacherFetchLeeds2(Request $request) {
-        if(Auth::check() && Auth()->user()->role=="High_school_teacher"){
-                $query = Leed::with('school','course')->select( 'id',  'student_firstname',
-                'student_lastname',
-                'student_email',
-                'student_phone',
-                'student_gender',
-                'student_school',
-                'student_form',
-                'comment',
-                'year_data_captured',
-                'parent_name',
-                'parent_phone',
-                'parent_email', 'school_id', 'course_id')->where(['school_id'=>Auth::user()->school_id])->get();
 
-
-                // Apply search filter if provided
-                if ($request->has('search') && !empty($request->search)) {
-                    $query->where(function($q) use ($request) {
-                        $q->where('topic_name', 'like', '%' . $request->search . '%')
-                        ->orWhere('topic_content', 'like', '%' . $request->search . '%')
-                        ->orWhere('topic_status', 'like', '%' . $request->search . '%');
-                    });
-                }
-            
-                // Get the number of records per page
-                $perPage = $request->input('per_page', 10); // Default is 10
-            
-                $users = $query->paginate($perPage);
-            
-                return response()->json([
-                    'users' => $users->items(),
-                    'pagination' => [
-                        'current_page' => $users->currentPage(),
-                        'last_page' => $users->lastPage(),
-                        'total' => $users->total(),
-                        'per_page' => $users->perPage(),
-                    ],
-                    'total_users' => $users->total(),
-                ]);
-       }
-    }
-
-
-    public function teacherFetchLeeds(Request $request)
+public function teacherFetchLeeds(Request $request)
 {
     if (Auth::check() && Auth()->user()->role == "High_school_teacher") {
 
@@ -282,7 +239,7 @@ class LeedController extends Controller
                
 
                 // Load the view and pass the data
-                $html = View::make('leeds.downloadShortCourseLetter', compact('imageSrc', 'leed','imageSrc2','imageSrc3'))->render();
+                $html = View::make('leeds.downloadShortCourseLetter', compact('imageSrc', 'leed','imageSrc2','imageSrc3','setting'))->render();
                 //$html = View::make('fees.studentReceipt', compact(['imageSrc' => $imageSrc,'fees'=> $fees]))->render();
 
                 // Convert the view to a PDF
@@ -294,7 +251,7 @@ class LeedController extends Controller
                 // Stream or download the PDF
                 return response($dompdf->output(), 200, [
                     'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'attachment; filename="Receipt.pdf"',
+                    'Content-Disposition' => 'attachment; filename="' . $leed->student_firstname . '_Partial_scholarship.pdf"',
                 ]);
 
 
@@ -322,6 +279,61 @@ class LeedController extends Controller
     
 
 
+    public function teachermanageLeedsFormFour(){
+        $courses=Course::select('id','course_name')->get();
+        $schools=School::select('id','school_name')->get();
+        return view('leeds.teacherManageLeedsFormFour',compact('schools','courses'));
+    }
+
+    public function teacherFetchLeedsFormFour(Request $request)
+{
+    if (Auth::check() && Auth()->user()->role == "High_school_teacher") {
+
+        $query = Leed::with('school', 'course')
+            ->select(
+                'id',
+                'student_firstname',
+                'student_lastname',
+                'student_email',
+                'student_phone',
+                'student_gender',
+                'student_school',
+                'student_form',
+                'comment',
+                'year_data_captured',
+                'parent_name',
+                'parent_phone',
+                'parent_email',
+                'school_id',
+                'course_id'
+            )
+            ->where('school_id', Auth::user()->school_id)->where('student_form','Form Four'); // ✅ No get() here
+
+        // Apply search filter if provided
+        if ($request->has('search') && !empty($request->search)) {
+            $query->where(function ($q) use ($request) {
+                $q->where('topic_name', 'like', '%' . $request->search . '%')
+                    ->orWhere('topic_content', 'like', '%' . $request->search . '%')
+                    ->orWhere('topic_status', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        $perPage = $request->input('per_page', 10);
+
+        $users = $query->paginate($perPage); // ✅ Now this works
+
+        return response()->json([
+            'users' => $users->items(),
+            'pagination' => [
+                'current_page' => $users->currentPage(),
+                'last_page' => $users->lastPage(),
+                'total' => $users->total(),
+                'per_page' => $users->perPage(),
+            ],
+            'total_users' => $users->total(),
+        ]);
+    }
+}
 
 
 }

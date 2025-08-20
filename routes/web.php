@@ -184,6 +184,9 @@ Route::prefix('Leeds')->group(function () {
     Route::get('/T-fetch-leeds', [LeedController::class, 'teacherFetchLeeds'])->name('teacherFetchLeeds');
 
     Route::get('/{id}/download-pdf', [LeedController::class, 'downloadShortCourseLetter'])->name('leeds.downloadShortCourseLetter');
+
+    Route::get('/T-manageLeeds/form-4', [LeedController::class, 'teachermanageLeedsFormFour'])->name('teachermanageLeedsFormFour');
+    Route::get('/T-fetch-leeds-form-4', [LeedController::class, 'teacherFetchLeedsFormFour'])->name('teacherFetchLeedsFormFour');
 });
 
 

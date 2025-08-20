@@ -13,7 +13,7 @@
         @if(!empty($setting->company_name))
          {{$setting->company_name}}
         @else
-         Techsphere Training Institute
+         COLABORATION AND LINKAGES PORTAL
         @endif
 
         </title>
@@ -38,19 +38,21 @@
        <link href="{{asset('assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
        <script src="https://use.fontawesome.com/d79a9c14ef.js"></script>
 
-       <script src="https://cdn.tiny.cloud/1/krfz17eg92fzkqudwvql9jzu1xevin49e4qwz97unmaccw2m/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+       <!--<script src="https://cdn.tiny.cloud/1/krfz17eg92fzkqudwvql9jzu1xevin49e4qwz97unmaccw2m/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>-->
        
 
-       <!-- Place the first <script> tag in your HTML's <head> -->
-      <script src="https://cdn.tiny.cloud/1/krfz17eg92fzkqudwvql9jzu1xevin49e4qwz97unmaccw2m/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+     <!-- Place the first <script> tag in your HTML's <head> -->
+      <!--<script src="https://cdn.tiny.cloud/1/krfz17eg92fzkqudwvql9jzu1xevin49e4qwz97unmaccw2m/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>-->
 
      <!--Google fonts-->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 
+    <!-- SimpleMDE css -->
+    <link href="{{asset('assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
 
-
+   
 
         <!-- third party css -->
         <link href="{{asset('assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
@@ -66,18 +68,18 @@
         <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style"/>
 
 
-            <!-- Smartsupp Live Chat script 
-            <script type="text/javascript">
-            var _smartsupp = _smartsupp || {};
-            _smartsupp.key = 'b7f9e59215dfeb4a10a833748dc3307a58941cfa';
-            window.smartsupp||(function(d) {
-            var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-            s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-            c.type='text/javascript';c.charset='utf-8';c.async=true;
-            c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-            })(document);
-            </script>
-            <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>-->
+          <!-- Smartsupp Live Chat script -->
+        <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'f78b85cfef5ee63b9ee486011c36ad039b55f303';
+        window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+        </script>
+        <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 
 
     <style>
@@ -148,7 +150,7 @@
         body{
             font-family: "Afacad Flux", sans-serif !important;
            
-            font-size:14px;
+           
             text-transform: uppercase;
         }
 
@@ -184,11 +186,11 @@
             <div class="leftside-menu">
     
                 <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-white">
+                <a href="index.html" class="logo text-center logo-white" style="font-size:30px;color:#669999">
                     <span class="logo-lg" style="background-color:white;">
-                        <img src="{{asset('images/logo/'.$setting->company_logo)}}" alt="" height="100">
+                       <!-- <img src="{{asset('images/logo/'.$setting->company_logo)}}" alt="" height="100">-->
+                        CLP
                     </span>
-                   
                 </a>
                 <br>
     
@@ -201,7 +203,7 @@
 
                             <li class="side-nav-item">
                                 <a href="{{route('home')}}" class="side-nav-link">
-                                    <i class="uil-comments-alt text-warning"></i>
+                                    <i class="uil-package"></i>
                                     <span class="menu-arrow"></span>
                                     <span> VIEW DASHBOARD </span>
                                 </a>
@@ -209,7 +211,7 @@
 
                             <li class="side-nav-item">
                                 <a href="{{route('userAccount')}}" class="side-nav-link">
-                                    <i class="uil-comments-alt text-danger"></i>
+                                   <i class="uil-package"></i>
                                     <span class="menu-arrow"></span>
                                     <span> MANAGE ACCOUNT</span>
                                 </a>
@@ -225,7 +227,7 @@
 
                             <li class="side-nav-item">
                                 <a href="{{route('showAdministrator')}}" class="side-nav-link">
-                                    <i class="uil-comments-alt text-warning"></i>
+                                 <i class="uil-package"></i>
                                     <span class="menu-arrow"></span>
                                     <span> MANAGE TEACHERS</span>
                                 </a>
@@ -233,11 +235,19 @@
 
                             <li class="side-nav-item">
                                 <a href="{{route('showCourses')}}" class="side-nav-link">
-                                    <i class="uil-comments-alt text-warning"></i>
+                                   <i class="uil-package"></i>
                                     <span class="menu-arrow"></span>
                                     <span> MANAGE PROGRAMS</span>
                                 </a>
                             </li>
+
+                            <!--<li class="side-nav-item">
+                                <a href="{{route('showTrainees')}}" class="side-nav-link">
+                                    <i class="uil-comments-alt text-warning"></i>
+                                    <span class="menu-arrow"></span>
+                                    <span> TRAINEES</span>
+                                </a>
+                            </li>-->
 
 
 
@@ -360,7 +370,15 @@
                            <li class="side-nav-item">
                                 <a  href="{{route('showLeeds')}}" class="side-nav-link">
                                     <i class="uil-package"></i>
-                                    <span> MANAGE LEEDS </span>
+                                    <span>LEEDS (LOWER FORMS) </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                           </li>
+
+                           <li class="side-nav-item">
+                                <a  href="{{route('showLeeds')}}" class="side-nav-link">
+                                    <i class="uil-package"></i>
+                                    <span>LEEDS (FORMS FOUR) </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                            </li>
@@ -423,7 +441,7 @@
 
                        <li class="side-nav-item">
                             <a href="{{route('home')}}" class="side-nav-link">
-                                <i class="uil-comments-alt text-warning"></i>
+                               <i class="uil-package"></i>
                                 <span class="menu-arrow"></span>
                                 <span> SHOW DASHBOARD </span>
                             </a>
@@ -431,7 +449,7 @@
 
                         <li class="side-nav-item">
                                 <a href="{{route('userAccount')}}" class="side-nav-link">
-                                    <i class="uil-comments-alt text-danger"></i>
+                                    <i class="uil-package"></i>
                                     <span class="menu-arrow"></span>
                                     <span> MANAGE PROFILE</span>
                                 </a>
@@ -440,9 +458,17 @@
 
                         <li class="side-nav-item">
                             <a href="{{route('teacherShowLeeds')}}" class="side-nav-link">
-                                <i class="uil-comments-alt"></i>
+                                <i class="uil-package"></i>
                                 <span class="menu-arrow"></span>
-                                <span>ENROLL STUDENTS</span>
+                                <span>STUDENTS (LOWER FORMS)</span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('teachermanageLeedsFormFour')}}" class="side-nav-link">
+                                <i class="uil-package"></i>
+                                <span class="menu-arrow"></span>
+                                <span>STUDENTS (FORM FOUR)</span>
                             </a>
                         </li>
 
@@ -468,13 +494,13 @@
                             </a>
                         </li>
 
-                        <li class="side-nav-item">
+                        <!--<li class="side-nav-item">
                             <a href="{{route('userAccount')}}" class="side-nav-link">
                                 <i class="uil-comments-alt text-danger"></i>
                                 <span class="menu-arrow"></span>
                                 <span> My Account</span>
                             </a>
-                        </li>
+                        </li>-->
 
 
                         <li class="side-nav-item">
@@ -486,19 +512,27 @@
                         </li>
 
 
-                        <li class="side-nav-item">
+                        <!--<li class="side-nav-item">
                             <a href="{{route('showClassLink')}}" class="side-nav-link">
                                 <i class="uil-home-alt text-info"></i>
                                 <span class="menu-arrow"></span>
                                 <span> Class Link</span>
                             </a>
-                        </li>
+                        </li>-->
 
-                        <li class="side-nav-item">
-                            <a href="{{route('showClassNotes')}}" class="side-nav-link">
+                         <!--<li class="side-nav-item">
+                            <a href="{{route('showClassLink')}}" class="side-nav-link">
                                 <i class="uil-home-alt text-info"></i>
                                 <span class="menu-arrow"></span>
-                                <span> Class Notes</span>
+                                <span> Class Link</span>
+                            </a>
+                        </li>-->
+
+                        <li class="side-nav-item">
+                            <a href="{{route('traineeViewFinalExam')}}" class="side-nav-link">
+                                <i class="uil-home-alt text-info"></i>
+                                <span class="menu-arrow"></span>
+                                <span> SCHOLARSHIP TEST</span>
                             </a>
                         </li>
 
@@ -506,7 +540,7 @@
                        
 
 
-                        <li class="side-nav-item">
+                        <!--<li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
                                 <i class="uil-clipboard-alt"></i>
                                 <span> Assesment</span>
@@ -525,17 +559,17 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li>-->
 
 
 
-                        <li class="side-nav-item">
+                        <!--<li class="side-nav-item">
                             <a href="{{route('traineeViewFeePayment')}}" class="side-nav-link">
                                 <i class="uil uil-tachometer-fast text-danger"></i>
                                 <span class="menu-arrow"></span>
                                 <span>Fee Payment</span>
                             </a>
-                        </li>
+                        </li>-->
 
 
                        
@@ -755,6 +789,12 @@
         <script src="{{asset('assets/js/ui/component.fileupload.js')}}"></script>
 
 
+        
+        <!-- SimpleMDE js -->
+        <script src="{{asset('assets/js/vendor/simplemde.min.js')}}"></script>
+        <!-- SimpleMDE demo -->
+        <script src="{{asset('assets/js/pages/demo.simplemde.js')}}"></script>
+
 
 
 
@@ -801,7 +841,12 @@
     </script>
 
         
-        
+        <!-- Initialize Quill editor -->
+    <script>
+    const quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+    </script>
 
         @yield('scripts')
 

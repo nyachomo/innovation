@@ -46,8 +46,35 @@
         <div class="card">
             <div class="card-header">
 
-                Enrolled Leeds: <span id="total-users">0</span>
-                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addLeedModal"> <i class="uil-user-plus"></i>Enroll New Leed</a>
+           <div class="row">
+                        <!--<div class="col-sm-12">
+                            <center>
+                                <img src="{{asset('images/logo/logo.jpeg')}}"  style="max-width: 100px; height: 100px">
+                            </center>
+                            <center> <h2 style="color:#000033">TECHSPHERE TRAINING INSTITUTE</h2></center>
+                        
+                            <center>
+                            <p style="border-bottom:3px solid #000033">
+                                <b>
+                                View Park Towers 17th Floor, University way | P. O. Box 1334-00618, Nairobi<br>
+                                Web: <a href="https://techsphereinstitute.co.ke" style="color:blue">https://techsphereinstitute.co.ke</a>  Email: <span style="color:blue">Info@techsphereinstitute.co.ke </span>| <br>
+                                Phone: <span style="color:#3ccccc">+254768919307</span>
+                                </b>
+                            </p>
+                            </center>
+                        </div>
+                    </div>-->
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                              <h5>
+                                  <center>1 <sup>st</sup> ANNUAL ICT INNOVATION CHALLANGE<br>PARTICIPANTS</center>
+                              </h5>
+                        </div>
+                    </div>
+
+                Total Students: <span id="total-users">0</span>
+                <a type="button" style="float:right" class="btn btn-sm btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addLeedModal"> <i class="uil-user-plus"></i>Register Student</a>
             </div>
             <div class="card-body">
 
@@ -93,8 +120,8 @@
                                     <th>Student Class</th>
                                     <th>Student Contact</th>
                                     <th>Parent Contact</th>
-                                    <!--<th>Program</th>-->
-                                    <!-- <th>Student Gender</th>-->
+                                    <th>Program</th>
+                                    <!--<th>Student Gender</th>-->
                                     <!--<th>Parent name</th>-->
                                    
                                     <th>Action</th>
@@ -664,12 +691,13 @@ setTimeout(() => {
 function fetchUsers(page = 1, search = '', perPage = 10) {
     $.ajax({
         type: 'GET',
-        url: "{{route('fetchLeeds')}}",
+        url: "{{route('teacherFetchLeeds')}}",
         data: { page: page, search: search, per_page: perPage },
         dataType: "json",
         success: function(response) {
             // Update total users
             $('#total-users').text(response.total_users);
+
             // Clear and repopulate the table
             $('tbody').html("");
             $.each(response.users, function(key, item) {
@@ -685,7 +713,7 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                          <!--<td>' + item.student_gender + '</td>-->\
                         <!--<td>' + item.parent_name + '</td>-->\
                         <td>' + item.parent_phone + '</td>\
-                        <!--<td>' + item.course.course_name + '</td>-->\
+                        <td>' + item.course.course_name + '</td>\
                         <td>\
                             <button type="button" value="' + item.id + '" \
                                 data-student_firstname="' + item.student_firstname + '" \
@@ -697,10 +725,10 @@ function fetchUsers(page = 1, search = '', perPage = 10) {
                                 data-parent_name="' + item.parent_name + '" \
                                 data-parent_phone="' + item.parent_phone + '" \
                                 <button type="button" value="' + item.id + '" \
-                                class="updateBtn btn btn-success btn-sm"><i class="uil-edit"></i>UPDATE</button>\
-                               <button type="button" value="' + item.id + '" \
-                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i> DELETE</button>\
-                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="fa fa-download"></i> Scholarship Letter</a>\
+                                class="updateBtn btn btn-success btn-sm"><i class="uil-edit"></i>Update</button>\
+                               <!--  <button type="button" value="' + item.id + '" \
+                                class="deleteBtn btn btn-danger btn-sm"><i class=" uil-trash-alt"></i></button>\
+                                <a href="/Leeds/' + item.id + '/download-pdf" class="btn btn-primary btn-sm"><i class="uil-file-download"></i> Download PDF</a> --> \
                         </td>\
                     </tr>'
                 );
